@@ -8,7 +8,7 @@ export async function findUserByGoogleId(googleId: string): Promise<IUserDoc | n
 
 export async function createUser(data: {
   googleId: string;
-  email: string;
+  email: string;  //aa
   name?: string;
   picture?: string;
 }): Promise<IUserDoc> {
