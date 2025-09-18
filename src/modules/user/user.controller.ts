@@ -12,7 +12,7 @@ const GOOGLE_USERINFO_URL = 'https://www.googleapis.com/oauth2/v2/userinfo';
 export function googleLogin(_: Request, res: Response) {
   const params = new URLSearchParams({
     client_id: CONFIG.GOOGLE_CLIENT_ID,
-    redirect_uri: `${CONFIG.BASE_URL}/auth/google/callback`,
+    redirect_uri: `${CONFIG.BASE_URL}/api/user/google/callback`,
     scope: 'openid email profile',
     response_type: 'code',
     access_type: 'offline',
@@ -33,7 +33,7 @@ export async function googleCallback(req: Request, res: Response) {
     client_secret: CONFIG.GOOGLE_CLIENT_SECRET,
     code,
     grant_type: 'authorization_code',
-    redirect_uri: `${CONFIG.BASE_URL}/auth/google/callback`,
+    redirect_uri: `${CONFIG.BASE_URL}/api/user/google/callback`,
   });
 
   const accessToken = tokenResp.data.access_token;
